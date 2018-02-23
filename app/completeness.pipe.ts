@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Task} from './task.model';
+import {Animal} from './animal.model';
 
 @Pipe({
   name: "completeness",
@@ -8,18 +8,18 @@ import {Task} from './task.model';
 
 export class CompletenessPipe implements PipeTransform {
 
-  transform(input: Task[], desiredCompleteness) {
-    var output: Task[] = [];
-    if(desiredCompleteness === "incompleteTasks") {
+  transform(input: Animal[], desiredCompleteness) {
+    var output: Animal[] = [];
+    if(desiredCompleteness === "incompleteAnimals") {
       for (var i = 0; i < input.length; i++) {
-        if (input[i].done === false) {
+        if (input[i].admitted === false) {
           output.push(input[i]);
         }
       }
       return output;
-    } else if (desiredCompleteness === "completedTasks") {
+    } else if (desiredCompleteness === "completedAnimals") {
       for (var i = 0; i < input.length; i++) {
-        if (input[i].done === true) {
+        if (input[i].admitted === true) {
           output.push(input[i]);
         }
       }
