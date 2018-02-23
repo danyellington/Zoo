@@ -6,13 +6,15 @@ import { Animal } from './animal.model';
   template: `
     <select (change)="onChange($event.target.value)">
       <option value="allAnimals">All Animals</option>
-      <option value="completedAnimals">Completed Admission</option>
-      <option value="incompleteAnimals" selected="selected">Incomplete Admission</option>
+      <option value="matureAnimals">Mature Animals</option>
+      <option value="juvenileAnimals" selected="selected">Juvenile Animals</option>
     </select>
     <ol>
       <li (click)="isAdmitted(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | completeness:filterByCompleteness"><br><strong>Species:</strong> {{currentAnimal.species}}<br><strong>Name:</strong> {{currentAnimal.name}}<br><strong>Age:</strong> {{currentAnimal.age}}<br><strong>Diet:</strong> {{currentAnimal.diet}}<br><strong>Location:</strong> {{currentAnimal.location}}<br><strong>Caretakers:</strong> {{currentAnimal.caretakers}}<br><strong>Sex:</strong> {{currentAnimal.sex}}<br><strong>Likes:</strong> {{currentAnimal.likes}}<br><strong>Dislikes:</strong> {{currentAnimal.dislikes}}<br>
+
+
         <input *ngIf="currentAnimal.admitted === true" type="checkbox" checked (click)="toggleAdmitted(currentAnimal, false)"/>
-        <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleAdmitted(currentAnimal, true)"/>
+        <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleAdmitted(currentAnimal, true)"/><label>Check if Juvenile (Under 2 years)</label><br>
         <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button><br>
       </li>
     </ol>

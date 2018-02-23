@@ -16,7 +16,7 @@ import { Animal } from './animal.model';
 })
 
 export class AppComponent {
- currentFocus: string = 'Admission Status';
+ currentFocus: string = 'New Animals';
  currentTime = new Date();
  month: number = this.currentTime.getMonth() + 1;
  day: number = this.currentTime.getDate();
@@ -38,5 +38,5 @@ export class AppComponent {
    this.masterAnimalList.push(newAnimalFromChild);
  }
 
- 
+
 }
