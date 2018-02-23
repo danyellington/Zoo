@@ -8,7 +8,7 @@ import { Animal } from './animal.model';
         <div *ngIf="childSelectedAnimal">
           <h3>{{childSelectedAnimal.Species}}</h3>
 					<h3>{{childSelectedAnimal.Name}}</h3>
-          <p>Animal Admitted? {{childSelectedAnimal.admitted}}</p>
+          <p>Juvenile Status: {{childSelectedAnimal.admitted}}</p>
           <hr>
           <h3>Edit Animal</h3>
           <label>Edit Animal Description:</label><br><br>
