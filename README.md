@@ -1,6 +1,6 @@
 # Zoo Animal Tracker
 
-This is a website designed to add, edit, and view new animals admitted to a zoo - Version 1: 23/02/2018
+This is an app designed to add, edit, and view new animals admitted to a zoo - Version 1: 23/02/2018
 
 ##### By: Danyel Murray
 

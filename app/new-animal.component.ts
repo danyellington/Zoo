@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal.model';
+import { AppComponent } from './app.component';
 
 @Component({
 	selector: 'new-animal',
@@ -16,7 +17,7 @@ import { Animal } from './animal.model';
         <input #newDiet><br><br>
 				<label>Location:</label>
         <input #newLocation><br><br>
-				<label>Caretakers:</label>
+				<label>Caretakers #:</label>
         <input #newCaretakers><br><br>
 				<label>Sex:</label>
         <input #newSex><br><br>
@@ -25,8 +26,8 @@ import { Animal } from './animal.model';
 				<label>Dislikes:</label>
         <input #newDislikes><br>
       </div>
-      <div>
 
+			<div>
         <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value='';">Add</button>
       </div>
   `

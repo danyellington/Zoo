@@ -9,14 +9,14 @@ import { Animal } from './animal.model';
       <option value="completedAnimals">Juvenile Animals</option>
       <option value="incompleteAnimal" selected="selected">Mature Animals</option>
     </select>
-    <ol>
+    <ul>
       <li (click)="isAdmitted(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | completeness:filterByCompleteness"><br><strong>Species:</strong> {{currentAnimal.species}}<br><strong>Name:</strong> {{currentAnimal.name}}<br><strong>Age:</strong> {{currentAnimal.age}}<br><strong>Diet:</strong> {{currentAnimal.diet}}<br><strong>Location:</strong> {{currentAnimal.location}}<br><strong>Caretakers:</strong> {{currentAnimal.caretakers}}<br><strong>Sex:</strong> {{currentAnimal.sex}}<br><strong>Likes:</strong> {{currentAnimal.likes}}<br><strong>Dislikes:</strong> {{currentAnimal.dislikes}}<br>
         <input *ngIf="currentAnimal.admitted === true" type="checkbox" checked (click)="toggleAdmitted(currentAnimal, false)"/>
         <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleAdmitted(currentAnimal, true)"/>
 				<label>Check if Juvenile (Under 2 years)</label><br>
         <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button><br>
       </li>
-    </ol>
+    </ul>
   `
 })
 
