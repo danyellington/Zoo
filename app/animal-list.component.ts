@@ -9,13 +9,13 @@ import { Animal } from './animal.model';
       <option value="completedAnimals">Completed Admission</option>
       <option value="incompleteAnimals" selected="selected">Incomplete Admission</option>
     </select>
-    <ul>
-      <li (click)="isAdmitted(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | completeness:filterByCompleteness">{{currentAnimal.species}} {{currentAnimal.name}}{{currentAnimal.age}} {{currentAnimal.diet}} {{currentAnimal.location}} {{currentAnimal.caretakers}} {{currentAnimal.sex}} {{currentAnimal.likes}} {{currentAnimal.dislikes}} 
-        <input *ngIf="currentAnimal.admitted === true" type="checkbox" checked (click)="toggleDone(currentAnimal, false)"/>
-        <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleDone(currentAnimal, true)"/>
-        <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
+    <ol>
+      <li (click)="isAdmitted(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | completeness:filterByCompleteness"><br><strong>Species:</strong> {{currentAnimal.species}}<br><strong>Name:</strong> {{currentAnimal.name}}<br><strong>Age:</strong> {{currentAnimal.age}}<br><strong>Diet:</strong> {{currentAnimal.diet}}<br><strong>Location:</strong> {{currentAnimal.location}}<br><strong>Caretakers:</strong> {{currentAnimal.caretakers}}<br><strong>Sex:</strong> {{currentAnimal.sex}}<br><strong>Likes:</strong> {{currentAnimal.likes}}<br><strong>Dislikes:</strong> {{currentAnimal.dislikes}}<br>
+        <input *ngIf="currentAnimal.admitted === true" type="checkbox" checked (click)="toggleAdmitted(currentAnimal, false)"/>
+        <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleAdmitted(currentAnimal, true)"/>
+        <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button><br>
       </li>
-    </ul>
+    </ol>
   `
 })
 
