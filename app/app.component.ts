@@ -16,7 +16,7 @@ import { Animal } from './animal.model';
 })
 
 export class AppComponent {
- currentFocus: string = 'New Animals';
+ currentFocus: string = 'Select Animals to View';
  currentTime = new Date();
  month: number = this.currentTime.getMonth() + 1;
  day: number = this.currentTime.getDate();

@@ -10,14 +10,14 @@ export class CompletenessPipe implements PipeTransform {
 
   transform(input: Animal[], desiredCompleteness) {
     var output: Animal[] = [];
-    if(desiredCompleteness === "juevenileAnimals") {
+    if(desiredCompleteness === "incompleteAnimal") {
       for (var i = 0; i < input.length; i++) {
         if (input[i].admitted === false) {
           output.push(input[i]);
         }
       }
       return output;
-    } else if (desiredCompleteness === "matureAnimals") {
+    } else if (desiredCompleteness === "completedAnimals") {
       for (var i = 0; i < input.length; i++) {
         if (input[i].admitted === true) {
           output.push(input[i]);

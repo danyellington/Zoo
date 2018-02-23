@@ -6,15 +6,14 @@ import { Animal } from './animal.model';
   template: `
     <select (change)="onChange($event.target.value)">
       <option value="allAnimals">All Animals</option>
-      <option value="matureAnimals">Mature Animals</option>
-      <option value="juvenileAnimals" selected="selected">Juvenile Animals</option>
+      <option value="completedAnimals">Juvenile Animals</option>
+      <option value="incompleteAnimal" selected="selected">Mature Animals</option>
     </select>
     <ol>
       <li (click)="isAdmitted(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | completeness:filterByCompleteness"><br><strong>Species:</strong> {{currentAnimal.species}}<br><strong>Name:</strong> {{currentAnimal.name}}<br><strong>Age:</strong> {{currentAnimal.age}}<br><strong>Diet:</strong> {{currentAnimal.diet}}<br><strong>Location:</strong> {{currentAnimal.location}}<br><strong>Caretakers:</strong> {{currentAnimal.caretakers}}<br><strong>Sex:</strong> {{currentAnimal.sex}}<br><strong>Likes:</strong> {{currentAnimal.likes}}<br><strong>Dislikes:</strong> {{currentAnimal.dislikes}}<br>
-
-
         <input *ngIf="currentAnimal.admitted === true" type="checkbox" checked (click)="toggleAdmitted(currentAnimal, false)"/>
-        <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleAdmitted(currentAnimal, true)"/><label>Check if Juvenile (Under 2 years)</label><br>
+        <input *ngIf="currentAnimal.admitted === false" type="checkbox" (click)="toggleAdmitted(currentAnimal, true)"/>
+				<label>Check if Juvenile (Under 2 years)</label><br>
         <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button><br>
       </li>
     </ol>
@@ -29,7 +28,7 @@ export class AnimalListComponent {
   this.filterByCompleteness = optionFromMenu;
 }
 
-  toggleDone(clickedAnimal: Animal, setCompleteness: boolean) {
+  toggleAdmitted(clickedAnimal: Animal, setCompleteness: boolean) {
      clickedAnimal.admitted = setCompleteness;
    }
 
@@ -37,9 +36,9 @@ export class AnimalListComponent {
 		this.clickSender.emit(animalToEdit);
 	}
 
-	filterByCompleteness: string = "incompleteAnimals";
+	filterByCompleteness: string = "incompleteAnimal";
 
-	isDone(clickedAnimal: Animal) {
+	isAdmitted(clickedAnimal: Animal) {
 		if (clickedAnimal.admitted === true) {
 			console.log("This animal has been admitted.");
 		} else {
@@ -47,14 +46,6 @@ export class AnimalListComponent {
 		}
 	};
 
-	priorityColor(currentAnimal) {
-		if (currentAnimal.priority === 3) {
-			return "bg-danger";
-		} else if (currentAnimal.priority === 2) {
-			return "bg-warning";
-		} else {
-			return "bg-info";
-		}
-	};
+
 
 }
