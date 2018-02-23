@@ -1,11 +1,27 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent }   from './app.component';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { AnimalListComponent } from './animal-list.component';
+import { EditAnimalComponent } from './edit-animal.component';
+import { NewAnimalComponent } from './new-animal.component';
+import { CompletenessPipe } from './completeness.pipe';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+	imports: [
+		BrowserModule,
+		FormsModule
+	], declarations: [
+		AppComponent,
+		AnimalListComponent,
+		EditAnimalComponent,
+		NewAnimalComponent,
+		CompletenessPipe
+	], bootstrap: [
+		AppComponent
+	]
 })
 
-export class AppModule { }
+export class AppModule {
+
+}
